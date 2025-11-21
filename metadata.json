@@ -1,0 +1,7 @@
+{
+  "name": "CultureCoach - AI Cultural Competency Trainer",
+  "description": "An interactive voice-based AI coach helping users master cultural competency through real-time conversation and role-play.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
