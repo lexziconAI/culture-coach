@@ -18,7 +18,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, onSwitchToRegister }) => {
     setIsLoading(true);
     setError(null);
 
-    try:
+    try {
       const formData = new URLSearchParams();
       formData.append('username', email);
       formData.append('password', password);
