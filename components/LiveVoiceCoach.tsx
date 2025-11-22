@@ -4,6 +4,7 @@ import { decodeBase64, encodeBase64, decodeAudioData, float32ToInt16 } from '../
 import AudioVisualizer from './AudioVisualizer';
 import { ConnectionState, SessionState, INITIAL_SESSION_STATE } from '../types';
 import { LiveTracker, FinalReport } from './AssessmentDashboard';
+import { getWebSocketUrl } from '../src/config';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PHASE 1: ADD SPECTRAL ANALYSIS UTILITIES
@@ -462,7 +463,7 @@ const LiveVoiceCoach: React.FC<{ token: string }> = ({ token }) => {
       }
 
       // Connect to Backend Relay
-      const ws = new WebSocket('ws://localhost:8001/ws/openai-relay');
+      const ws = new WebSocket(getWebSocketUrl('/ws/openai-relay'));
       sessionRef.current = ws;
 
       ws.onopen = () => {
