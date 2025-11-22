@@ -29,7 +29,7 @@ class Assessment(AssessmentBase):
         from_attributes = True
 
 class UserBase(BaseModel):
-    username: str
+    email: str
 
 class UserCreate(UserBase):
     password: str
@@ -46,4 +46,4 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    username: Optional[str] = None
+    email: Optional[str] = None

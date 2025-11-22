@@ -8,7 +8,7 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin, onSwitchToRegister }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,9 +18,9 @@ const Login: React.FC<LoginProps> = ({ onLogin, onSwitchToRegister }) => {
     setIsLoading(true);
     setError(null);
 
-    try {
+    try:
       const formData = new URLSearchParams();
-      formData.append('username', username);
+      formData.append('username', email);
       formData.append('password', password);
 
       const response = await fetch(getApiUrl('/api/token'), {
@@ -57,11 +57,11 @@ const Login: React.FC<LoginProps> = ({ onLogin, onSwitchToRegister }) => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Username</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
               required
             />
