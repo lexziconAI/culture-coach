@@ -4,7 +4,7 @@ import { decodeBase64, encodeBase64, decodeAudioData, float32ToInt16 } from '../
 import AudioVisualizer from './AudioVisualizer';
 import { ConnectionState, SessionState, INITIAL_SESSION_STATE } from '../types';
 import { LiveTracker, FinalReport } from './AssessmentDashboard';
-import { getWebSocketUrl } from '../src/config';
+import { getWebSocketUrl, getApiUrl } from '../src/config';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PHASE 1: ADD SPECTRAL ANALYSIS UTILITIES
@@ -751,7 +751,7 @@ const LiveVoiceCoach: React.FC<{ token: string }> = ({ token }) => {
     setErrorMsg(null);
 
     try {
-        const response = await fetch('/api/finalize-session', {
+        const response = await fetch(getApiUrl('/api/finalize-session'), {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json'
